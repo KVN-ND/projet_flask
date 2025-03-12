@@ -1,0 +1,29 @@
+header {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 1em;
+    font-family: "Gill Sans", sans-serif; 
+    font-size: 25px;
+}
+
+#menu{
+display: flex ;
+}
+
+form {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 1em;
+    font-family: "Gill Sans", sans-serif; 
+    font-size: 25px;
+
+
+}
+
+input {
+font-size:15px;
+
+}
+
