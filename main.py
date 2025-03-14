@@ -9,6 +9,13 @@ def start():
 def index():
     return render_template('index.html', data = AffichageIdentite() )
 
+@app.route("/Nike")
+def Nike():
+    return render_template('Nike.html')
+
+@app.route("/Balance")
+def Balance():
+    return render_template('Balance.html')
 
 @app.route('/form', methods=['GET', 'POST'])
 def form():

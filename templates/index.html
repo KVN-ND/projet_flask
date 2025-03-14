@@ -1,23 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Accueil</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename='css/index.css') }}">
-    <script src='test1.js'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/index.css') }}">
+    <script src="{{ url_for('static', filename='js/test1.js') }}"></script>
 </head>
 <body>              
     <header>
         <h1>SHOCK X</h1>
     </header>
-  <nav>
-    <div id="menu">
-      <a href="index.html"class="button" style="color: black; text-decoration: none";><div class="btn_accueil"> <u>Accueil</u></div></a>
-      <a href="Nike.html" class="button"style="color: black; text-decoration: none";><div class="btn_accueil"> Nike </div></a>
-      <a href="Balance.html" class="button" style="color: black; text-decoration: none";><div class="btn_accueil"> Newbalance </div></a>
-    </div>
+    <nav>
+        <div id="menu">
+            <a href="{{ url_for('index') }}" class="button" style="color: black; text-decoration: none;">
+                <div class="btn_accueil">Accueil</div>
+            </a>
+            <a href="{{ url_for('Nike') }}" class="button" style="color: black; text-decoration: none;">
+                <div class="btn_accueil"><u>Nike</u></div>
+            </a>
+            <a href="{{ url_for('Balance') }}" class="button" style="color: black; text-decoration: none;">
+                <div class="btn_accueil">New Balance</div>
+            </a>
+        </div>
+    </nav>
+
+
   </nav>
 <h2> Voici un texte présentant un site de présentation de chaussures :</h2>
 
