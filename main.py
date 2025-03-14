@@ -6,29 +6,25 @@ def form():
     return render_template('form.html')
 
 
-@app.route('/form', methods=['GET'])
+# Route pour afficher le formulaire (page form.html)
+@app.route("/form", methods=['GET', 'POST'])
 def form():
+    if request.method == 'POST':
+        # Récupérer les données du formulaire
+        prenom = request.form['prenom']
+        nom = request.form['nom']
+        age = request.form['age']
+
+        print(f'Prénom: {prenom}, Nom: {nom}, Age: {age}')
+        # Redirection vers la page d'accueil après soumission
+        return redirect(url_for('accueil'))
+
     return render_template('form.html')
 
-
-@app.route('/submit_form', methods=['POST'])
-def submit_form():
-    if request.method == 'POST':
-
-        name = request.form['prenom']
-        nom = request.form['nom']
-        
-        print(f'prénom: {name}, Nom: {nom}') 
-         
-        return redirect(url_for('index.html'))
-
-# Route pour la page d'accueil
-@app.route('/')
+# Route pour afficher la page d'accueil (index.html)
+@app.route("/")
 def accueil():
     return render_template('index.html')
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
-
-
-app.run(host='localhost', port=8000)
