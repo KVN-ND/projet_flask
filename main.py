@@ -1,34 +1,29 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
 @app.route("/")
-def form():
+def start():
     return render_template('form.html')
 
-
-@app.route('/form', methods=['GET'])
-def form():
-    return render_template('form.html')
-
-
-@app.route('/submit_form', methods=['POST'])
-def submit_form():
-    if request.method == 'POST':
-
-        name = request.form['prenom']
-        nom = request.form['nom']
-        
-        print(f'prénom: {name}, Nom: {nom}') 
-         
-        return redirect(url_for('index.html'))
-
-# Route pour la page d'accueil
-@app.route('/')
-def accueil():
+@app.route("/index")
+def index():
     return render_template('index.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
 
+@app.route('/form', methods=['GET', 'POST'])
+def avis():
+    if request.method == 'POST':
+        nom = request.form['nom']
+        prenom = request.form['prenom']
+        date_naissance = request.form['date_naissance']
+        marque_preferee = request.form['marque_preferee']
+        couleur_favorite = request.form['couleur_favorite']
 
-app.run(host='localhost', port=8000)
+        # Vous pouvez ajouter une logique pour sauvegarder ces informations dans une base de données
+        print(f"Nom: {nom}, Prénom: {prenom}, Date de Naissance: {date_naissance}, Marque préférée: {marque_preferee}, Couleur favorite: {couleur_favorite}")
+
+        return redirect(url_for('index'))  # Rediriger vers l'accueil après soumission
+
+    return render_template('form.html')  # Afficher le formulaire
+
+app.run(host='localhost', port=8000, debug=True)
