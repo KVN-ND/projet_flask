@@ -30,11 +30,13 @@
   </nav>
 <h2> Voici un texte présentant un site de présentation de chaussures :</h2>
 
-<p id="container">Bienvenue sur SHOCK X, votre destination ultime pour découvrir les dernières tendances en matière de chaussures !<br>
-
-Nous croyons que chaque pas compte et que les bonnes chaussures peuvent transformer votre journée. Notre site est conçu pour vous offrir une expérience de shopping en ligne exceptionnelle, mettant en vedette une vaste sélection de chaussures pour les jeunes intéressés de modes.<br>
-
-Nous nous engageons à vous offrir un site efficace pour vous.Que vous soyez passionné de mode ou simplement à la recherche de chaussures confortables, SHOCK X est là pour vous aider à mettre votre meilleur pied en avant.</p>
+<p id="container"> 
+  <ul>
+  {% for d in data %}
+    <li>{{ d }}</li>
+  {% endfor %}
+</ul>
+</p>
 
 <footer>Venez explorer notre collection et trouvez la paire parfaite qui vous accompagnera dans toutes vos aventures !
 </footer>

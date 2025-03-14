@@ -7,7 +7,7 @@ def start():
 
 @app.route("/index")
 def index():
-    return render_template('index.html')
+    return render_template('index.html', data = AffichageIdentite() )
 
 @app.route("/Nike")
 def Nike():
@@ -32,5 +32,10 @@ def form():
         return redirect(url_for('index'))  # Rediriger vers l'accueil après soumission
 
     return render_template('form.html')  # Afficher le formulaire
+
+def AffichageIdentite():
+    return('prénon', 'nom', 'date','marque favorite')
+def AffichagePhoto():
+    return ('photo aléatoire de chaussures comme photo de profil d utilisateur')
 
 app.run(host='localhost', port=8000, debug=True)
