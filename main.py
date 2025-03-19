@@ -13,10 +13,6 @@ def index():
 def Nike():
     return render_template('Nike.html')
 
-@app.route("/Balance")
-def Balance():
-    return render_template('Balance.html')
-
 @app.route('/form', methods=['GET', 'POST'])
 def form():
     if request.method == 'POST':
@@ -35,7 +31,41 @@ def form():
 
 def AffichageIdentite():
     return('prénon', 'nom', 'date','marque favorite')
+
 def AffichagePhoto():
     return ('photo aléatoire de chaussures comme photo de profil d utilisateur')
+
+def get_chaussure_par_filtre(**filtre) :
+    return [
+        {
+            'nom': 'New Balance 574',
+            'prix': 90,
+            'couleur': 'Bleu',
+            'image': '/static/images/nb574.jpg',
+            'lien': 'https://www.newbalance.fr/nb574',
+            'taille': '41-44'
+        },
+        {
+            'nom': 'New Balance 997',
+            'prix': 130,
+            'couleur': 'Noir',
+            'image': '/static/images/nb997.jpg',
+            'lien': 'https://www.newbalance.fr/nb997',
+            'taille': '42-45'
+        },
+        {
+            'nom': 'New Balance 990',
+            'prix': 180,
+            'couleur': 'Gris',
+            'image': '/static/images/nb990.jpg',
+            'lien': 'https://www.newbalance.fr/nb990',
+            'taille': '40-43'
+        }
+    ]
+
+@app.route('/balance')
+def balance():
+    # Rendre le template avec la liste de chaussures
+    return render_template('balance.html', chaussures=get_chaussure_par_filtre())
 
 app.run(host='localhost', port=8000, debug=True)

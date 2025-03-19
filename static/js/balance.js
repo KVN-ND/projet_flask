@@ -1,11 +1,9 @@
-
 let index = 0;
 
 
 function TailleImage(event, s) {
   a= event.srcElement;
   a.style.scale = s;
-
 }
 
 let chaussures = [
@@ -97,7 +95,7 @@ function glissiere() {
   ['New Balance 530', 70 ,'blanc','https://nb.scene7.com/is/image/NB/mr530ad_nb_02_i?$pdpflexf22x$&qlt=80&fmt=webp&wid=880&hei=880','https://www.newbalance.fr/fr/pd/530/MR530-32265.html?dwvar_MR530-32265_style=MR530SG','S' ],
       
   ['New balance 1906R', 90, 'Marron','https://nb.scene7.com/is/image/NB/m1906rph_nb_03_i?$pdpflexf22x$&qlt=80&fmt=webp&wid=880&hei=880','https://www.newbalance.fr/fr/pd/1906r/M1906RV1-48798.html?dwvar_M1906RV1-48798_style=M1906RPH','M'],
-     
+    
       ]
     )
   } else if (valeur >= 5 && valeur < 8) {
@@ -115,7 +113,7 @@ function glissiere() {
       [
   ['New Balance 1000', 170 ,'rose', 'https://nb.scene7.com/is/image/NB/m1000mc_nb_02_i?$pdpflexf22x$&qlt=80&fmt=webp&wid=880&hei=880','https://www.newbalance.fr/fr/pd/1000/M1000V1-47835.html?dwvar_M1000V1-47835_style=M1000MC','M'],
   ['New Balance 9060', 190 , 'beige' ,'https://nb.scene7.com/is/image/NB/u9060wht_nb_02_i?$pdpflexf22x$&qlt=80&fmt=webp&wid=880&hei=880','https://www.newbalance.fr/fr/pd/9060/U9060V1-48838.html?dwvar_U9060V1-48838_style=U9060WHT','S' ],
-       
+      
       ]
     )
   }
@@ -134,7 +132,7 @@ function bleu() {
   genererChaussures(
   [
   ['New Balance 2002R', 110, 'bleu', 'https://nb.scene7.com/is/image/NB/m2002rpq_nb_03_i?$dw_detail_main_lg$&bgc=f1f1f1&layer=1&bgcolor=f1f1f1&blendMode=mult&scale=10&wid=1600&hei=1600','https://www.newbalance.fr/fr/pd/2002r/M2002RV1-47324.html?dwvar_M2002RV1-47324_style=M2002RPQ','L'], 
-   
+  
   ]
   )
 }
@@ -181,7 +179,7 @@ function S() {
   [
     ['New Balance 9060', 190 , 'beige' ,'https://nb.scene7.com/is/image/NB/u9060wht_nb_02_i?$pdpflexf22x$&qlt=80&fmt=webp&wid=880&hei=880','https://www.newbalance.fr/fr/pd/9060/U9060V1-48838.html?dwvar_U9060V1-48838_style=U9060WHT','S' ],
     ['New Balance 530', 70 ,'blanc','https://nb.scene7.com/is/image/NB/mr530ad_nb_02_i?$pdpflexf22x$&qlt=80&fmt=webp&wid=880&hei=880','https://www.newbalance.fr/fr/pd/530/MR530-32265.html?dwvar_MR530-32265_style=MR530SG','S' ],
-     
+    
   ]
   )
 }
@@ -191,7 +189,7 @@ function M() {
   [
     ['New Balance 1000', 170 ,'rose', 'https://nb.scene7.com/is/image/NB/m1000mc_nb_02_i?$pdpflexf22x$&qlt=80&fmt=webp&wid=880&hei=880','https://www.newbalance.fr/fr/pd/1000/M1000V1-47835.html?dwvar_M1000V1-47835_style=M1000MC','M'],
     ['New balance 1906R', 90, 'Marron','https://nb.scene7.com/is/image/NB/m1906rph_nb_03_i?$pdpflexf22x$&qlt=80&fmt=webp&wid=880&hei=880','https://www.newbalance.fr/fr/pd/1906r/M1906RV1-48798.html?dwvar_M1906RV1-48798_style=M1906RPH','M'],
-   
+  
     
   ]
   )
