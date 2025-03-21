@@ -187,11 +187,14 @@ article {
     
 }
 
+#block a {
+    width: calc(33% - 22px);
+}
+
 .card {
     border-radius: 10px;
     border: 1px solid rgb(0, 0, 0);
     display: inline-block;
-    width: calc(33% - 40px);
     margin-left: auto;
     padding: 10px;
 }

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>New Balance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chaussure.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Chaussures</h1>
+    </header>
+
+    <nav id="menu">
+        <a href="{{ url_for('index') }}" class="button" style="color: black; text-decoration: none;">
+            <div class="btn_accueil">Accueil</div>
+        </a>
+        <a href="{{ url_for('chaussure') }}" class="button" style="color: black; text-decoration: none;">
+            <div class="btn_accueil">Chaussures</div>
+        </a>
+    </nav>
+
+    <div class="container">
+        <aside class="sidebar">
+            <form action="{{ url_for('chaussure')}}" method="post">
+                <h2>Filtres</h2> 
+                    <div class="filtre-section">
+                        <h3>Taille</h3>
+                        <ul>
+                            <li><input type="checkbox" id="Nike" name="Nike" value="Nike"><label for="Nike">Nike</label></li>
+                            <li><input type="checkbox" id="Balance" name="Balance" value="Balance"><label for="Balance">Balance</label></li>
+                        </ul>
+                    </div>       
+                    <div class="filtre-section">
+                        <h3>Taille</h3>
+                        <ul>
+                            <li><input type="checkbox" id="taille-s" name="taille-s" value="S"><label for="taille-s">37-40</label></li>
+                            <li><input type="checkbox" id="taille-m" name="taille-m" value="M"><label for="taille-m">41-44</label></li>
+                            <li><input type="checkbox" id="taille-l" name="taille-l" value="L"><label for="taille-l">45-48</label></li>
+                        </ul>
+                    </div>
+            
+                    
+                    <div class="filtre-section">
+                        <h3>Couleur</h3>
+                        <ul>
+                            <li><input type="checkbox" id="couleur-blanc" name="couleur-blanc" value="blanc"><label for="couleur-blanc">Blanc</label></li>
+                            <li><input type="checkbox" id="couleur-bleu" name="couleur-bleu" value="bleu"><label for="couleur-bleu">Bleu</label></li>
+                            <li><input type="checkbox" id="couleur-noir" name="couleur-noir" value="noir"><label for="couleur-noir">Noir</label></li>
+                            <li><input type="checkbox" id="couleur-marron" name="couleur-marron" value="marron"><label for="couleur-marron">Marron</label></li>
+                            <li><input type="checkbox" id="couleur-beige" name="couleur-beige" value="beige"><label for="couleur-beige">Beige</label></li>
+                            
+                        </ul>
+                    </div>
+            
+                    <div class="filtre-section">
+                        <p>Tranche de prix</p>
+                        <input id="entree" type="range" name="prix" min="1" max="12" class="slider">
+                        <div id="tranche-prix"></div>
+                    </div>
+                    <button type="submit">envoyer</button>
+                </form>
+            </aside>
+        </aside>
+
+        <main class="main-content">
+            <h1>Bienvenue sur notre site</h1>
+            <p>Voici notre sélection de paire de New Balance :</p>
+            <div id="block">
+                {% for chaussure in chaussures %}
+                <a href="{{ url_for('afficher_chaussure', nom=chaussure.nom) }}">
+                    <div class="card">
+                        <h3>{{ chaussure.nom }}</h3>
+                        <ul>
+                            <li>{{ chaussure.prix }}€</li>
+                            <li>Couleur: {{ chaussure.couleur }}</li>
+                            <li>Taille: {{ chaussure.taille }}</li>
+                        </ul>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>
