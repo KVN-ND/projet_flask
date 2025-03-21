@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ chaussure.nom }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>{{ chaussure.nom }}</h1>
+    </header>
+
+    <main>
+        <div class="card">
+            <ul>
+                <li>Prix : {{ chaussure.prix }}€</li>
+                <li>Couleur : {{ chaussure.couleur }}</li>
+                <li>Taille disponible : {{ chaussure.taille }}</li>
+            </ul>
+            <a href="{{ chaussure.lien }}" target="_blank">
+                <img src="{{ chaussure.image }}" alt="Image de {{ chaussure.nom }}" width="300">
+            </a>
+        </div>
+    </main>
+    
+    <footer>
+        <a href="{{ url_for('index') }}">Retour à l'accueil</a>
+    </footer>
+</body>
+</html>
