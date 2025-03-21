@@ -1,29 +1,94 @@
 header {
-    background-color: #000000;
-    color: #ffffff;
+    background: linear-gradient(135deg, #000, #333);
+    color: #fff;
     text-align: center;
-    padding: 1em;
-    font-family: "Gill Sans", sans-serif; 
-    font-size: 25px;
+    padding: 2em;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    overflow: hidden;
 }
 
-#menu{
-display: flex ;
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 160%;
+    height: 100%;
+    background-image: url('https://images4.alphacoders.com/683/thumb-1920-683744.jpg'); /* Remplace 'ton-image.png' par l'URL de ton image */
+    background-size: 100px 80px; /* Ajuste la taille de l'imag   e */
+    background-repeat: repeat;
+    opacity: 0.5; /* Ajuste l'opacité pour un effet subtil */
+    animation: movePattern 6s linear infinite;
 }
+
+@keyframes movePattern {
+    0% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(20px) translateY(20px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+header h1 {
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
 
 form {
-    background-color: #000000;
-    color: #ffffff;
+    color: #000000;
     text-align: center;
-    padding: 1em;
-    font-family: "Gill Sans", sans-serif; 
-    font-size: 25px;
-
-
+    padding: 2em;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 20px;
+    width: 40%;
+    margin: 40px auto;
+    border-radius: 8px;
 }
 
 input {
-font-size:15px;
-
+    font-size: 16px;
+    padding: 10px;
+    margin: 18px 0;
+    border: 1px solid #fecdf5;
+    color: #000000; /* Couleur du texte ajustée pour être lisible sur le fond sombre */
+    border-radius: 4px;
+    width: 80%;
+    transition: background-color 0.5s ease, background-image 0.5s ease; /* Transition pour background-color et background-image */
 }
 
+input:hover {
+    /*background-color: #ffbaf2;  Changement de couleur de fond au survol */
+    background-image: linear-gradient(135deg, #ffffff, #ffbaf2); /* Changement de dégradé au survol */
+    color: #000000; /* Couleur du texte ajustée pour être lisible sur le fond clair */
+}
+
+button {
+    font-size: 18px;
+    background-color: #ffbaf2;
+    color: #9c5592;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    float: right;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #f5f5f5;
+}
