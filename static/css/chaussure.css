@@ -36,11 +36,9 @@ header::before {
 form {
     color: #000000;
     text-align: center;
-    padding: 2em;
     font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 20px;
     width: 40%;
-    margin: 40px auto;
     border-radius: 8px;
 }
 
@@ -133,7 +131,7 @@ body {
 
 
     .sidebar {
-        width: 290px;
+        width: 300px;
         height: 100vh;
         background-color: #f7f7f7;
         padding: 20px;
@@ -145,7 +143,7 @@ body {
     }
 
 .barre-cote h2 {
-    font-size: 22px;
+    font-size: 10px;
     margin-bottom: 22px;
 }
 
@@ -168,7 +166,7 @@ body {
 }
 
 .filtre-section input[type="checkbox"] {
-    margin-right: 10px;
+    margin-right: 0px;
 }
 
         .filtre-section input[type="range"] {
@@ -196,7 +194,7 @@ body {
 
 /* Contenu principal */
 .main-content {
-    margin-left: 30px;
+    margin-left: 00px;
     padding: 20px;
     flex-grow: 1;
 }
