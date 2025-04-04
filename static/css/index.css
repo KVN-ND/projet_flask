@@ -1,10 +1,47 @@
 header {
-    background-color: #000000;
-    color: #fff;
-    text-align: center;
-    padding: 1em;
-    font-family: "Gill Sans", sans-serif; 
-    font-size: 25px;
+  background: linear-gradient(135deg, #000, #333);
+  color: #fff;
+  text-align: center;
+  padding: 2em;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160%;
+  height: 100%;
+  background-image: url('https://images4.alphacoders.com/683/thumb-1920-683744.jpg'); /* Remplace 'ton-image.png' par l'URL de ton image */
+  background-size: 100px 80px; /* Ajuste la taille de l'imag   e */
+  background-repeat: repeat;
+  opacity: 0.5; /* Ajuste l'opacité pour un effet subtil */
+  animation: movePattern 6s linear infinite;
+}
+
+@keyframes movePattern {
+  0% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(20px) translateY(20px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+
+
+
+form {
+  color: #000000;
+  text-align: center;
+  padding: 2em;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 20px;
+  width: 40%;
+  margin: 40px auto;
+  border-radius: 8px;
 }
 
 h2 {
