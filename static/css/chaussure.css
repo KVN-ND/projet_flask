@@ -222,15 +222,13 @@ body {
     top: 0;
     left: 0;
     width: 160%;
-    height: 100%;
+    height: 140%;
     background-image: 
-        url('https://th.bing.com/th/id/OIP.fJnyI1EULIDB0II8cIrUSAHaEo?rs=1&pid=ImgDetMain'),
-        url('https://th.bing.com/th/id/OIP.bir4pTXzS6Ku0n2FdoFyWQHaEc?rs=1&pid=ImgDetMain'),
-        url('https://th.bing.com/th/id/OIP.Yd-3XtSg2TL8AKh2eVBLQQHaEo?rs=1&pid=ImgDetMain');
+        url('https://i.pinimg.com/474x/69/49/d2/6949d21f7bacc328a6094f1d418160bc.jpg');
     background-repeat: repeat;
-    background-size: 120px 120px, 120px 120px, 120px 120px;
+    background-size: 170px 200px;
     background-position: 0 0, 150px 150px, 300px 300px;
-    opacity: 0.2;
+    opacity: 0.45;
     animation: movePattern 10s linear infinite;
     z-index: -1;
 }
