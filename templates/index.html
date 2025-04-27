@@ -7,6 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/index.css') }}">
     <script src="{{ url_for('static', filename='js/test1.js') }}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var password = prompt("Entrez le mot de passe pour accéder au site :");
+            if (password !== "XXX") {
+                alert("Mot de passe incorrect. Vous allez être redirigé.");
+                window.location.href = "{{ url_for('form') }}"; // Redirige vers le formulaire si mauvais mot de passe
+            }
+        });
+    </script>
 </head>
 <body>              
     <header>
