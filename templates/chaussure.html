@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>New Balance</title>
+    <title>chaussure</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/chaussure.css') }}">
 </head>
 
@@ -50,9 +50,11 @@
                             <li><input type="checkbox" id="couleur-blanc" name="couleur-blanc" value="blanc"><label for="couleur-blanc">Blanc</label></li>
                             <li><input type="checkbox" id="couleur-bleu" name="couleur-bleu" value="bleu"><label for="couleur-bleu">Bleu</label></li>
                             <li><input type="checkbox" id="couleur-noir" name="couleur-noir" value="noir"><label for="couleur-noir">Noir</label></li>
-                            <li><input type="checkbox" id="couleur-marron" name="couleur-marron" value="marron"><label for="couleur-marron">Marron</label></li>
+                            <li><input type="checkbox" id="couleur-jaune" name="couleur-jaune" value="jaune"><label for="couleur-jaune">Jaune</label></li>
                             <li><input type="checkbox" id="couleur-beige" name="couleur-beige" value="beige"><label for="couleur-beige">Beige</label></li>
-                            
+                            <li><input type="checkbox" id="couleur-rose" name="couleur-rose" value="rose"><label for="couleur-rose">Rose</label></li>
+                            <li><input type="checkbox" id="couleur-rouge" name="couleur-rouge" value="rouge"><label for="couleur-rouge">Rouge</label></li>
+
                         </ul>
                     </div>
             
@@ -68,7 +70,7 @@
 
         <main class="main-content">
             <h1>Bienvenue sur notre site</h1>
-            <p>Voici notre sélection de paire de New Balance :</p>
+            <p>Voici notre sélection de Chaussures :</p>
             <div id="block">
                 {% for chaussure in chaussures %}
                 <a href="{{ url_for('afficher_chaussure', nom=chaussure.nom) }}">
