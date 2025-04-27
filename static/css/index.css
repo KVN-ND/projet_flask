@@ -48,6 +48,8 @@ h2 {
     font-family: "Gill Sans", sans-serif; 
     text-shadow: 5px 5px 2px rgb(233, 233, 239);
 }
+
+
 #menu {
     display: flex;
 }
@@ -89,9 +91,10 @@ body {
   
   
   p {
-    line-height: 1.5;
-    margin-bottom: 20px;
-  }
+  font-family: "Gill Sans", sans-serif; 
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
   
 
   footer {
