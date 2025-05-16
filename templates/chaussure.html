@@ -75,11 +75,11 @@
                 {% for chaussure in chaussures %}
                 <a href="{{ url_for('afficher_chaussure', nom=chaussure.nom) }}">
                     <div class="card">
-                        <h3>{{ chaussure.nom }}</h3>
-                        <ul>
-                            <li>{{ chaussure.prix }}€</li>
-                            <li>Couleur: {{ chaussure.couleur }}</li>
-                            <li>Taille: {{ chaussure.taille }}</li>
+                        <img src="{{ chaussure['image'] }}" alt="{{ chaussure['nom'] }}">
+                        <h3>{{ chaussure['nom'] }}</h3>
+                        <p>Prix : {{ chaussure['prix'] }}€</p>
+                        <p>Couleur : {{ chaussure['couleur'] }}</p>
+                        <p>Taille : {{ chaussure['taille'] }}</p>
                         </ul>
                     </div>
                 </a>

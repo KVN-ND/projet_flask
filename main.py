@@ -2,59 +2,46 @@ from flask import Flask, render_template, request, redirect, url_for
 import random
 import sqlite3
 app = Flask(__name__)
+def get_db_connection():
+    conn = sqlite3.connect('DATA.db')  # Nom de ton fichier DB
+    conn.row_factory = sqlite3.Row     # Pour accéder aux colonnes par nom
+    return conn
+@app.route('/chaussures_db')
+def chaussures_db():
+    conn = get_db_connection()
+    chaussures = conn.execute('SELECT * FROM chaussures').fetchall()
+    conn.close()
+    return render_template('chaussures_db.html', chaussures=chaussures)
 
-def get_chaussure_par_filtre(*filtre) :
-    print(filtre)
-    return [
-        {
-            'nom': 'New Balance 9060 ',
-            'prix': 130,
-            'couleur': 'Marron',
-            'image': 'https://images.stockx.com/images/New-Balance-9060-Mushroom-Product.jpg?fit=fill&bg=FFFFFF&w=140&h=75&q=57&dpr=2&trim=color&updated_at=1738193358',
-            'lien': 'https://limitedresell.com/4024-new-balance-9060-mushroom.html?variant=75017&epik=dj0yJnU9cEFNWHVEcDh3SzJKS1lqeDQzZFpTUi14WVhoNXVrZnUmcD0wJm49cEtOOEdsQkNvYmhLM0UwaXBGUmdZQSZ0PUFBQUFBR2dPR253',
-            'taille': '42-45'
-        },
-        {
-            'nom': 'TN Tiempo ',
-            'prix': 130,
-            'couleur': 'rouge',
-            'image': 'https://images.stockx.com/images/Nike-Air-Max-Plus-Tiempo-Team-Red-Product.jpg?fit=fill&bg=FFFFFF&w=140&h=75&q=57&dpr=2&trim=color&updated_at=1738193358',
-            'lien': 'https://stockx.com/fr-fr/nike-air-max-plus-tiempo-team-red?country=FR&currencyCode=EUR&size=14&utm_source=af&utm_medium=imp&utm_campaign=2213966&impactSiteId=Rq03XSUC-xyKWFvXtoQH2SVcUksRkYRREW4MWA0&clickid=Rq03XSUC-xyKWFvXtoQH2SVcUksRkYRREW4MWA0&utm_term=Rq03XSUC-xyKWFvXtoQH2SVcUksRkYRREW4MWA0&utm_content=_1023691&irgwc=1&irclickid=Rq03XSUC-xyKWFvXtoQH2SVcUksRkYRREW4MWA0&ir_campaignid=9060&ir_adid=1023691&ir_partnerid=2213966',
-            'taille': '42-45'
-        },
-        {   'nom': 'Shox R4 floral',
-            'prix': 90,
-            'couleur': 'Beige',
-            'image': 'https://images.stockx.com/images/Nike-Shox-R4-Flat-Pewter-Floral-Womens.jpg?fit=fill&bg=FFFFFF&w=140&h=75&q=57&dpr=2&trim=color&updated_at=1738266672',
-            'lien': 'https://www.nike.com/fr/t/chaussure-shox-r4-pour-wQWPrJH5/HV0934-001',
-            'taille': '41-44'
-        },
-        {
-            'nom': 'Nike Air Max A-COLD-WALL ',
-            'prix': 130,
-            'couleur': 'Bleu',
-            'image': 'https://images.stockx.com/images/Nike-Air-Max-Plus-A-COLD-WALL-Varsity-Royal-Product.jpg?fit=fill&bg=FFFFFF&w=140&h=75&q=57&dpr=2&trim=color&updated_at=1738193358',
-            'lien': 'https://stockx.com/fr-fr/nike-air-max-plus-a-cold-wall-varsity-royal?msockid=3232c88822cb6ec001a3dcdf23726f79',
-            'taille': '42-45'
-        },
-        { 
-            'nom': 'Nike Initiator',
-            'prix': 180,
-            'couleur': 'Blanc ',
-            'image': 'https://images.stockx.com/images/Nike-Initiator-White-Photon-Dust-Womens.jpg?fit=fill&bg=FFFFFF&w=140&h=75&q=57&dpr=2&trim=color&updated_at=1736779954',
-            'lien': 'https://www.nike.com/fr/t/chaussure-initiator-pour-pHUePZkd/FZ9020-100',
-            'taille': '40-43'
-        }
-    ]
+def get_chaussure_par_filtre(*filtres):
+    conn = get_db_connection()
+    query = "SELECT * FROM chaussures"
+    params = []
 
-def get_chaussure_par_nom(nom) :
-    return random.choice(get_chaussure_par_filtre())
-    # Si la chaussure n'est pas trouvée, afficher une page d'erreur 404
+    if filtres:
+        # On filtre sur couleur ou taille par exemple
+        query += " WHERE " + " OR ".join(["couleur = ? OR taille = ?" for _ in filtres])
+        for f in filtres:
+            params.extend([f, f])
+
+    try:
+        cur = conn.execute(query, params)
+        chaussures = cur.fetchall()
+    except Exception as e:
+        print("Erreur SQL :", e)
+        chaussures = []  # Pas planter le site
+
+    conn.close()
+    return chaussures
+
+
+def get_chaussure_par_nom(nom):
+    conn = get_db_connection()
+    chaussure = conn.execute('SELECT * FROM chaussures WHERE nom = ?', (nom,)).fetchone()
+    conn.close()
     if chaussure is None:
         return "Chaussure non trouvée", 404
-    
-    # Si la chaussure est trouvée, rendre le template avec ses informations
-    return render_template('chaussure_nom.html', chaussure=chaussure)
+    return chaussure
 
 def AffichageIdentite():
     return('prénon', 'nom', 'date','marque favorite')
